@@ -1,6 +1,7 @@
 import { NavigationBar } from "~/shared/navigationBar/components/NavigationBar"
 import { ThrashIcon } from "../components/thrashIcon/ThrashIcon"
 import { trashService, weatherService } from '~/shared/services';
+import { customWeatherDataType } from "~/shared/const/customweatherdatatype";
 
 
 export const Home = () => {
@@ -20,6 +21,12 @@ export const Home = () => {
     const weatherData = weatherService.getWeather();
 
     console.log("weatherData", weatherData);
+
+    const customWeatherData: customWeatherDataType = {
+        chance_of_rain: weatherData.forecast[dateString].chance_of_rain
+    };
+
+    console.log("custom weather data",customWeatherData);
     
 
     return(

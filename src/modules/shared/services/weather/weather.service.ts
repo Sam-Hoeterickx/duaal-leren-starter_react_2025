@@ -1,4 +1,4 @@
-import { WeatherDataType } from '~/shared/const/weatherDataType';
+import { WeatherDataType } from '~/shared/const/weatherdatatype.service';
 import weatherMock from '~/shared/mock/weather.json';
 
 class WeatherService {

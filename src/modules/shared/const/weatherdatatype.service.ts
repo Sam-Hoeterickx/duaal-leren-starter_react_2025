@@ -1,4 +1,4 @@
-import { ForecastDay } from "./forecastDay"
+import { ForecastDay } from "./forecastday.service"
 
 
 export interface WeatherDataType {
