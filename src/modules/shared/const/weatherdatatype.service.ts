@@ -1,4 +1,4 @@
-import { ForecastDay } from "./forecastday.service"
+import { forecastDayType } from "./forecastDayType.service"
 
 
 export interface WeatherDataType {
@@ -17,7 +17,7 @@ export interface WeatherDataType {
         wind_speed: number
     },
     forecast: {
-        [date: string]: ForecastDay
+        [date: string]: forecastDayType
     },
     location: {
         country: string,

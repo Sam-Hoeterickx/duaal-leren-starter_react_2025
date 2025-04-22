@@ -1,3 +1,4 @@
+
 import { TrashType } from '~/shared/const/trashtype.service';
 import { TRASH_MOCK } from '~/shared/mock/trash.ts';
 

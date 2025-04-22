@@ -1,4 +1,4 @@
-export interface ForecastDay {
+export interface forecastDayType {
     avgtemp: number,
     chance_of_rain: number,
     condition: {
