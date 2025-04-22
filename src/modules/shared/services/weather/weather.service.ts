@@ -1,7 +1,8 @@
+import { WeatherDataType } from '~/shared/const/weatherDataType';
 import weatherMock from '~/shared/mock/weather.json';
 
 class WeatherService {
-    async getWeather() {
+    getWeather(): WeatherDataType {
         return weatherMock;
     }
 }
