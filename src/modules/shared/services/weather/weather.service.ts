@@ -3,8 +3,13 @@ import { WeatherDataType } from '~/shared/services/weather/types/weatherDataType
 import weatherMock from '~/shared/mock/weather.json';
 
 class WeatherService {
-    getWeather(): WeatherDataType {
-        return weatherMock;
-    }
+	getWeather():Promise<WeatherDataType> {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				resolve(weatherMock);
+
+			}, 3000);
+		});
+	}
 }
 export const weatherService = new WeatherService();

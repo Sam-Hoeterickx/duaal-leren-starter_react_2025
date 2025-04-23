@@ -31,7 +31,7 @@ export const Home = () => {
             setRain(true);
         }
 
-    }, [])
+    }, [weatherData])
 
     console.log(rain);
 
