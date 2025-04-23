@@ -13,7 +13,7 @@ export const ThrashIcon: FC<ThrasIconProps> = ( {trashType} ) => {
             <div className={
                 clsx(styles['trash-icon'], styles[`trash-icon--${trashType}`])
             } >
-                <img src={`/public/waste/${trashType}.png`} alt="" />
+                <img src={`/public/waste/${trashType}.svg`} alt="" />
                 <h4>
                     { trashType }
                 </h4>

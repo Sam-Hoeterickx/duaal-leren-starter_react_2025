@@ -63,8 +63,8 @@ export const Home = () => {
 
                 <WarningPopUp
                     rain={rain}
+                    loadingState={ weatherLoading || trashLoading}
                 />
-
 
                 <div>
                     <h4 className="oblique">
