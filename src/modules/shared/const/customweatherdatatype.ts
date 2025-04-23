@@ -1,3 +1,3 @@
 export interface customWeatherDataType{
-    chance_of_rain: number
+    chance_of_rain: number | undefined
 }

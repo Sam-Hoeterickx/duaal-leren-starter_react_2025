@@ -8,19 +8,19 @@ export const NavigationBar = () => {
             <nav className={
                 clsx(styles['navigationBar'])
             }>
-                <div className="icon" id="home">
+                <div className={clsx(styles['icon'])} id="home">
                 <img src="public/icons/home.svg" alt="" />                    
                 </div>
-                <div className="icon" id="calendar">
+                <div className={clsx(styles['icon'])} id="calendar">
                     <img src="public/icons/calendar.svg" alt="" />
                 </div>
-                <div className="icon" id="location">
+                <div className={clsx(styles['icon'])} id="location">
                     <img src="public/icons/location.svg" alt="" />
                 </div>
-                <div className="icon" id="recycle">
+                <div className={clsx(styles['icon'])} id="recycle">
                     <img src="public/icons/recycle.svg" alt="" />
                 </div>
-                <div className="icon" id="more">
+                <div className={clsx(styles['icon'])} id="more">
                     <img src="public/icons/more.svg" alt="" />
                 </div>
             </nav>

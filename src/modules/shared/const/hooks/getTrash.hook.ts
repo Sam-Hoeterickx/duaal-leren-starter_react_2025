@@ -4,7 +4,7 @@ import { trashService } from '~/shared/services'
 
 export const useGetTrash = () => {
 
-    useQuery({
+    return useQuery({
         queryKey: SHARED_QUERY_KEYS.trash,
         queryFn: trashService.getTrashItems
     })

@@ -1,19 +1,25 @@
 import { NavigationBar } from "~/shared/navigationBar/components/NavigationBar"
 import { ThrashIcon } from "../components/thrashIcon/ThrashIcon"
-import { weatherService } from '~/shared/services';
 import { useEffect, useState } from "react";
 import { customWeatherDataType } from "~/shared/const/customWeatherDataType";
+import { useGetTrash, useGetWeather } from "~/shared/const/hooks";
+import { TrashType } from "~/shared/services/trash/types/trashType.service";
+import { WarningPopUp } from "../components/warningPopUp/WarningPopUp";
+import { Loading } from "~/shared/loadingComponent/Loading";
 
-import styles from "./home.module.scss";
 import clsx from "clsx";
+import styles from "./home.module.scss";
+
+
+
 
 export const Home = () => {
-
+    //Hooks
     const [rain, setRain] = useState<boolean|undefined>(false);
+    const {data: trashData, isLoading: trashLoading} = useGetTrash();
+    const {data: weatherData, isLoading: weatherLoading} = useGetWeather();
 
-    //console.log("trash", trashService.getTrashItems());
-    // console.log("weather", weatherService.getWeather());
-
+    //Day
     const day = new Date();
     const date = day.getDate();
     const month = (day.getMonth() + 1).toString().padStart(2, '0');
@@ -21,29 +27,44 @@ export const Home = () => {
 
     const today: string = `${year}-${month}-${date}`;
 
-    const weatherData = weatherService.getWeather();
+    //Define custom weather data from useGetWeather hook
     const customWeatherData: customWeatherDataType = {
-        chance_of_rain: weatherData.forecast[today].chance_of_rain
+        chance_of_rain: weatherData?.forecast[today].chance_of_rain
     };
 
+
     useEffect(() => {
-        if(customWeatherData.chance_of_rain > 50){
+        //Check of customWeatherData is er of check of customWeather.chance_of_rain is undefined
+        //Dan return (early exit)
+        //Typescript weet dan dat in de 2de if state dat customWeatherData niet undefined is
+
+        if(!customWeatherData || customWeatherData.chance_of_rain === undefined){
+            return
+        }
+
+        if(customWeatherData.chance_of_rain > 50 ){
             setRain(true);
         }
 
     }, [weatherData])
 
-    console.log(rain);
+    // console.log(rain);
 
-    console.log("custom weather data", customWeatherData);
+    console.log(trashLoading, weatherLoading)
     
 
     return(
         <>
             <div className="wrapper">
+
                 <div>
                     <h1>Recycle!</h1>
                 </div>
+
+                <WarningPopUp
+                    rain={rain}
+                />
+
 
                 <div>
                     <h4 className="oblique">
@@ -52,20 +73,27 @@ export const Home = () => {
                     <h2>
                         Morgen
                     </h2>
-                    <div className={clsx(styles['upcoming-trash'])}>
-                        <ThrashIcon 
-                            trashType="restafval"
-                        />
-                        <ThrashIcon 
-                            trashType="papier"
-                        />
-                    </div>
+                    <Loading 
+                        loadingState={weatherLoading || trashLoading}
+                    >
+                        <div className={
+                            clsx(styles['upcoming-trash'])
+                        }>
+                            {
+                                !trashData ? <div></div> : (trashData?.map((trash:TrashType) => (
+                                    <ThrashIcon 
+                                        key={trash.name}
+                                        trashType={trash.name}
+                                    />
+                                )))
+                            }
+                        </div>
 
-                    <div className="rain">
-                        <h4>Chance of rain</h4>
-                        <h3>{customWeatherData.chance_of_rain}%</h3>
-                        <h3></h3>
-                    </div>
+                        <div className="rain">
+                            <h4>Chance of rain</h4>
+                            <h3>{!customWeatherData.chance_of_rain ? <div></div> : (`${customWeatherData.chance_of_rain}%`)}</h3>
+                        </div>
+                    </Loading>
                 </div>
             </div>
 
