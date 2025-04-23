@@ -1,11 +1,23 @@
-export const ThrashIcon = ( {trashType}:{ trashType:string } ) => {
+import clsx from 'clsx'
+import styles from './thrashIcon.module.scss'
+import { FC } from 'react'
+
+interface ThrasIconProps{
+    trashType: string
+}
+
+export const ThrashIcon: FC<ThrasIconProps> = ( {trashType} ) => {
 
     return(
         <>
-            <img src={`/public/icons/${trashType}`} alt="" />
-            <h4>
-                { trashType }
-            </h4>
+            <div className={
+                clsx(styles['trash-icon'], styles[`trash-icon--${trashType}`])
+            } >
+                <img src={`/public/waste/${trashType}.png`} alt="" />
+                <h4>
+                    { trashType }
+                </h4>
+            </div>
         </>
     )
 }

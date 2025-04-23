@@ -1,5 +1,5 @@
 
-import { TrashType } from '~/shared/const/trashtype.service';
+import { TrashType } from '~/shared/services/trash/types/trashType.service';
 import { TRASH_MOCK } from '~/shared/mock/trash.ts';
 
 class TrashService {

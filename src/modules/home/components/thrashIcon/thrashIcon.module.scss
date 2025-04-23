@@ -1,0 +1,45 @@
+.trash-icon{
+
+    display: flex;
+    align-items: center;
+    color: #fff;
+    width: 40vw;
+    padding: 0px 0px;
+    border-radius: 50px;
+
+    text-align: center;
+
+    box-shadow: 3px 3px 5px 5px #4f4f4f4e;
+
+    margin-right: 10px;
+    
+    img{
+        width: 30px;
+        border-radius: 50%;
+        border: 3pt solid #fff;
+        padding: 5px;
+        background-color: #fff;
+        margin: 4px;
+    }
+
+    h4{
+        width: 100%;
+        padding-right: 14px;
+    }
+
+    &--papier{
+        background-color: rgb(157, 88, 31);
+    }
+
+    &--gft{
+        background-color: green;
+    }
+
+    &--pmd{
+        background-color: rgb(13, 77, 227);
+    }
+
+    &--restafval{
+        background-color: rgb(47, 66, 66);
+    }
+}
