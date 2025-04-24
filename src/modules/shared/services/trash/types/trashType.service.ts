@@ -1,4 +1,7 @@
 export interface TrashType{
     id: string,
-    name: string,
+    name: {
+        en: string,
+        nl: string
+    }
 }

@@ -1,15 +1,25 @@
+import clsx from "clsx";
 import { NavigationBar } from "~/shared/navigationBar/components/NavigationBar"
 import { ThrashIcon } from "../components/thrashIcon/ThrashIcon"
 import { useEffect, useState } from "react";
+import { Trans } from "react-i18next";
+
+//Types
 import { customWeatherDataType } from "~/shared/const/customWeatherDataType";
-import { useGetTrash, useGetWeather } from "~/shared/const/hooks";
 import { TrashType } from "~/shared/services/trash/types/trashType.service";
+
+//Hooks
+import { useGetTrash, useGetWeather } from "~/shared/const/hooks";
+
+//Components
 import { WarningPopUp } from "../components/warningPopUp/WarningPopUp";
 import { Loading } from "~/shared/loadingComponent/Loading";
 
-import clsx from "clsx";
+//CSS
 import styles from "./home.module.scss";
 
+//i18n Markers
+import { MARKERS } from "../../../core/i18n/markers";
 
 
 
@@ -24,7 +34,6 @@ export const Home = () => {
     const date = day.getDate();
     const month = (day.getMonth() + 1).toString().padStart(2, '0');
     const year = day.getFullYear();
-
     const today: string = `${year}-${month}-${date}`;
 
     //Define custom weather data from useGetWeather hook
@@ -46,11 +55,7 @@ export const Home = () => {
             setRain(true);
         }
 
-    }, [weatherData])
-
-    // console.log(rain);
-
-    console.log(trashLoading, weatherLoading)
+    }, [weatherData]);
     
 
     return(
@@ -68,10 +73,10 @@ export const Home = () => {
 
                 <div>
                     <h4 className="oblique">
-                        Volgende ophaling
+                        <Trans>{MARKERS.collection_title}</Trans>
                     </h4>
                     <h2>
-                        Morgen
+                        <Trans>{MARKERS.collection_date}</Trans>
                     </h2>
                     <Loading 
                         loadingState={weatherLoading || trashLoading}
@@ -82,15 +87,15 @@ export const Home = () => {
                             {
                                 !trashData ? <div></div> : (trashData?.map((trash:TrashType) => (
                                     <ThrashIcon 
-                                        key={trash.name}
-                                        trashType={trash.name}
+                                        key={trash.name.nl}
+                                        TrashType={trash.name}
                                     />
                                 )))
                             }
                         </div>
 
                         <div className="rain">
-                            <h4>Chance of rain</h4>
+                            <h4><Trans>{MARKERS.chance_of_rain}</Trans></h4>
                             <h3>{!customWeatherData.chance_of_rain ? <div></div> : (`${customWeatherData.chance_of_rain}%`)}</h3>
                         </div>
                     </Loading>

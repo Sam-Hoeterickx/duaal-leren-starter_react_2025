@@ -11,6 +11,9 @@ import { RECYCLING_CENTER_ROUTE } from '~/recyclingCenter/recyclingCenter.route'
 import { App } from '../App';
 import { OPTIONS_ROUTE } from '~/options/options.route';
 
+//i18n
+import '../../../../core/i18n/i18n.config';
+
 const queryClient = new QueryClient();
 
 export const Root = () => {
