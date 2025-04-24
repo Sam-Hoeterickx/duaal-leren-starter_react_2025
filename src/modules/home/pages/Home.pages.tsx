@@ -1,6 +1,4 @@
 import clsx from "clsx";
-import { NavigationBar } from "~/shared/navigationBar/components/NavigationBar"
-import { ThrashIcon } from "../components/thrashIcon/ThrashIcon"
 import { useEffect, useState } from "react";
 import { Trans } from "react-i18next";
 
@@ -12,14 +10,16 @@ import { TrashType } from "~/shared/services/trash/types/trashType.service";
 import { useGetTrash, useGetWeather } from "~/shared/const/hooks";
 
 //Components
-import { WarningPopUp } from "../components/warningPopUp/WarningPopUp";
 import { Loading } from "~/shared/loadingComponent/Loading";
+import { ThrashIcon } from "../components/thrashIcon/ThrashIcon";
+import { WarningPopUp } from "../components/warningPopUp/WarningPopUp";
 
 //CSS
 import styles from "./home.module.scss";
 
 //i18n Markers
 import { MARKERS } from "../../../core/i18n/markers";
+import { useChangeLanguage } from "~/shared/const/hooks/changeLanguage.hook";
 
 
 
@@ -59,7 +59,6 @@ export const Home = () => {
     
 
     return(
-        <>
             <div className="wrapper">
 
                 <div>
@@ -100,10 +99,6 @@ export const Home = () => {
                         </div>
                     </Loading>
                 </div>
-            </div>
-
-            <NavigationBar />
-            
-        </>
+            </div>            
     )
 }

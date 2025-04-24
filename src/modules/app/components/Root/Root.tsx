@@ -27,25 +27,25 @@ export const Root = () => {
                     element: <h1>404 Page not found</h1>,
                 },
                 {
-                    path: HOME_ROUTE.path,
-                    element: HOME_ROUTE.element,
-                },
-                {
-                    path: CALENDAR_ROUTE.path,
-                    element: CALENDAR_ROUTE.element,
-                },
-                {
-                    path: MAP_ROUTE.path,
-                    element: MAP_ROUTE.element,
-                },
-                {
-                    path: RECYCLING_CENTER_ROUTE.path,
-                    element: RECYCLING_CENTER_ROUTE.element,
-                },
-                {
-                    path: OPTIONS_ROUTE.path,
-                    element: OPTIONS_ROUTE.element,
-                },
+                    path:':lang/',
+                    element: <App />,
+                    children: [
+                        {
+                            path: "options",
+                            element: OPTIONS_ROUTE.element,
+                        },
+                        {
+                            path: HOME_ROUTE.path,
+                            element: HOME_ROUTE.element,
+                        },
+                    ]
+                }
+                
+                
+
+                //path taal/pagina
+                //element return zelfde element
+                //schrijf hook zodat je param uit url haalt van de language en zet de language naar die taal
 
             ],
         },
