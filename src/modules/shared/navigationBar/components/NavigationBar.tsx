@@ -1,6 +1,8 @@
 import clsx from "clsx"
 
+//CSS
 import styles from './navigationBar.module.css'
+import { Link, NavLink } from "react-router"
 
 export const NavigationBar = () => {
     return(
@@ -9,19 +11,29 @@ export const NavigationBar = () => {
                 clsx(styles['navigationBar'])
             }>
                 <div className={clsx(styles['icon'])} id="home">
-                <img src="public/icons/home.svg" alt="" />                    
+                    <NavLink to="/">
+                        <img src="public/icons/home.svg" alt="" />     
+                    </NavLink>           
                 </div>
                 <div className={clsx(styles['icon'])} id="calendar">
-                    <img src="public/icons/calendar.svg" alt="" />
+                    <NavLink to="/calendar">
+                        <img src="public/icons/calendar.svg" alt="" />
+                    </NavLink>
                 </div>
                 <div className={clsx(styles['icon'])} id="location">
-                    <img src="public/icons/location.svg" alt="" />
+                    <NavLink to="/map">
+                        <img src="public/icons/location.svg" alt="" />
+                    </NavLink>
                 </div>
                 <div className={clsx(styles['icon'])} id="recycle">
-                    <img src="public/icons/recycle.svg" alt="" />
+                    <NavLink to="/recyclingcenter">
+                        <img src="public/icons/recycle.svg" alt="" />
+                    </NavLink>
                 </div>
                 <div className={clsx(styles['icon'])} id="more">
-                    <img src="public/icons/more.svg" alt="" />
+                    <NavLink to="/options">
+                        <img src="public/icons/more.svg" alt="" />
+                    </NavLink>
                 </div>
             </nav>
         </>

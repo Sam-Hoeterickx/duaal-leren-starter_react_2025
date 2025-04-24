@@ -23,24 +23,6 @@
     "is_day": "yes"
   },
   "forecast": {
-    "2025-04-21": {
-      "maxtemp": 18,
-      "mintemp": 9,
-      "avgtemp": 14,
-      "sunrise": "06:32",
-      "sunset": "20:42",
-      "chance_of_rain": 10,
-      "total_precip_mm": 0.3,
-      "condition": {
-        "text": "Partly cloudy",
-        "icon": "https://example.com/icons/partly-cloudy.png"
-      },
-      "hourly": [
-        { "time": "06:00", "temp": 9, "condition": "Clear" },
-        { "time": "12:00", "temp": 16, "condition": "Partly cloudy" },
-        { "time": "18:00", "temp": 15, "condition": "Cloudy" }
-      ]
-    },
     "2025-04-22": {
       "maxtemp": 19,
       "mintemp": 11,
@@ -75,6 +57,24 @@
         { "time": "06:00", "temp": 8, "condition": "Clear" },
         { "time": "12:00", "temp": 14, "condition": "Sunny" },
         { "time": "18:00", "temp": 13, "condition": "Sunny" }
+      ]
+    },
+    "2025-04-24": {
+      "maxtemp": 18,
+      "mintemp": 9,
+      "avgtemp": 14,
+      "sunrise": "06:32",
+      "sunset": "20:42",
+      "chance_of_rain": 10,
+      "total_precip_mm": 0.3,
+      "condition": {
+        "text": "Partly cloudy",
+        "icon": "https://example.com/icons/partly-cloudy.png"
+      },
+      "hourly": [
+        { "time": "06:00", "temp": 9, "condition": "Clear" },
+        { "time": "12:00", "temp": 16, "condition": "Partly cloudy" },
+        { "time": "18:00", "temp": 15, "condition": "Cloudy" }
       ]
     }
   }

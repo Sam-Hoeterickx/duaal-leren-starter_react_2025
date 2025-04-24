@@ -1,15 +1,14 @@
-// import styles from './app.module.scss';
-// import { clsx } from 'clsx';
-import { trashService } from '~/shared/services';
-import { Home } from '~/home/pages/Home.pages'
-export const App = () => {
+import { Outlet } from 'react-router';
 
-	// YOUR TRASH
-	console.log(trashService.getTrashItems());
+//Components
+import { NavigationBar } from '~/shared/navigationBar/components/NavigationBar';
+
+export const App = () => {
 
 	return (
 		<>
-			<Home />
+			<NavigationBar />
+			<Outlet />
 		</>
 	);
 };

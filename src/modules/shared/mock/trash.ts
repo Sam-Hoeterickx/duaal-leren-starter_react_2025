@@ -1,10 +1,10 @@
 export const TRASH_MOCK = [
 	{
 		id: 'paper',
-		name: 'Papier',
+		name: 'Restafval',
 	},
 	{
-		id: 'pmd',
-		name: 'Pmd',
+		id: 'gft',
+		name: 'Gft',
 	},
 ];
